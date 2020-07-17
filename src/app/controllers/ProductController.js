@@ -2,6 +2,7 @@ const { formatPrice } = require('../../lib/utils');
 
 const Category = require('../models/Category');
 const Product = require('../models/Product');
+const { put } = require('../../routes');
 
 module.exports = {
     create(req, res) {
@@ -49,5 +50,27 @@ module.exports = {
         const categories = results.rows
 
         return res.render("products/edit.njk", { product, categories })
+    },
+
+    async put(req,res) {
+        const keys = Object.keys(req.body)
+
+        for(key of keys) {
+            if (req.body[key] == "") {
+                return req.send('Por favor, preencha todos os campos!')
+            }
+        }
+
+        req.body.price = req.body.price.replace(/\D/g, "")
+
+        if (req.body_price != req.body.price) {
+            const oldProduct = await Product.find(req.body.id);
+
+            req.body.old_price = oldProduct.rows[0].price
+        }
+
+        await Product.update(req.body)
+
+        return res.redirect(`/products/${req.body.id}/edit`)
     }
 }
