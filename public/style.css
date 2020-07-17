@@ -11,7 +11,7 @@
 
 :root {
     --primary-color: #fd951f;
-    --secundary-color: #1fd4fd;
+    --secundary-color: #1f83fd;
 }
 
 html, body {
@@ -68,6 +68,23 @@ header div.container {
 .button:hover {
     opacity: 0.9;
 }
+
+.button.edit {
+    background-color: var(--secundary-color);
+}
+
+.button.delete {
+    background-color: lightgray;
+}
+
+.button.edit:hover {
+    background-color: #065ac1;
+}
+
+.button.delete:hover {
+    background-color: rgb(223, 62 ,62);
+}
+
 
 /* logo */
 .logo h1 {
@@ -138,11 +155,15 @@ section.form h3 {
     margin-bottom: 16px;
 }
 
+form .fields {
+    margin-bottom: 48px;
+}
+
 form .item {
     margin-bottom: 16px;
 }
 
-form .item > div:nth-last-child(1) {
+form .item > div:nth-child(1) {
     color: #777;
     text-transform: uppercase;
     font-size: 14px;
@@ -170,6 +191,15 @@ form .item textarea {
     min-height: 150px;
 }
 
-form .fields {
-    margin-bottom: 48px;
+form .item span {
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    border-radius: 16px;
+    color: white;
+    display: inline-block;
+    margin-right: 4px;
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
