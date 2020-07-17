@@ -32,9 +32,7 @@
 <div class="item">
     <div>Descrição</div>
     <div>
-        <textarea name="description">
-            {{product.description}}
-        </textarea>
+        <textarea name="description">{{product.description}}</textarea>
     </div>
 </div>
 
@@ -45,7 +43,7 @@
     <div>
         <input
             type="text"
-            name="nprice"
+            name="price"
             placeholder="Digite o valor do produto"
             value="{{ product.price }}"
             {# Faremos uma máscara de dinheiro em reais #}
